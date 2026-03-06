@@ -1,0 +1,80 @@
+/* Custom Linear Gradient for Navbar with Multiple Colors */
+.navbar-gradient {
+  background: linear-gradient(90deg, #6b46c1, #ed64a6, #f6ad55, #48bb78);
+  transition: all 0.3s ease;
+}
+.navbar-sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+/* 3D Button Animation with Vibrant Gradient */
+.nav-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: perspective(500px) rotateX(0deg) rotateY(0deg);
+}
+.nav-btn:hover {
+  transform: perspective(500px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #ed64a6, #f6ad55, #4fd1c5);
+}
+.nav-btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #f7fafc;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+}
+.nav-btn:hover::after {
+  transform: translateX(0);
+}
+/* Hero Section Gradient with Multi-Color Animation */
+.hero-gradient {
+  background: linear-gradient(135deg, #6b46c1, #ed64a6, #f6ad55, #48bb78, #4fd1c5);
+  background-size: 200% 200%;
+  animation: gradientShift 10s ease infinite;
+}
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* 3D About Card Animation with Colorful Gradient */
+.about-card {
+  position: relative;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  background: linear-gradient(45deg, #fefcbf, #fed7e2, #e6fffa);
+}
+.about-card:hover {
+  transform: perspective(1000px) rotateY(10deg) rotateX(5deg);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+/* Fade-in Animation for Hero */
+.animate-fade-in {
+  animation: fadeIn 1.5s ease-in-out;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

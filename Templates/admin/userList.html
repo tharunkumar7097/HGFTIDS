@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid Graph-Fine Tree Intrusion Detection System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+     
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar-gradient text-white p-5">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-3xl font-extrabold tracking-tight">
+                Hybrid Graph-Fine Tree Intrusion Detection System
+            </div>
+            <div class="space-x-6">
+                <a href="adminHome" class="nav-btn inline-block px-6 py-3 rounded-lg bg-blue-800 text-white"><i class="fas fa-home mr-1"></i>Home</a>
+                <a href="userList" class="nav-btn inline-block px-6 py-3 rounded-lg bg-blue-800 text-white"><i class="fas fa-user mr-1"></i>User Details</a>
+                <a href="log" class="nav-btn inline-block px-6 py-3 rounded-lg bg-blue-800 text-white"><i class="fas fa-sign-out-alt mr-1"></i>Log Out</a>
+                <a href="#about" class="nav-btn inline-block px-6 py-3 rounded-lg bg-blue-800 text-white"><i class="fas fa-info-circle mr-1"></i>About Us</a>
+            </div>
+        </div>
+    </nav>
+<br>
+<br>
+<br>
+<br>
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-36 text-center" style="background: linear-gradient(to right, #0f2027, #203a43, #2c5364); color: white; padding: 80px 20px; text-align: center;">
+    <section class="admin-home" style="max-width: 1000px; margin: 0 auto;">
+        <div class="section-card" style="background-color: white; color: #333; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); text-align: left;">
+            <h1 style="font-size: 30px; margin-bottom: 10px; text-align: center;">Welcome to the Admin Dashboard</h1>
+            <p style="font-size: 16px; margin-bottom: 30px; text-align: center;">Manage registered users, monitor system activity, and oversee the real-time ad fraud detection platform.</p>
+
+            <section>
+                <h2 style="font-size: 22px; margin-bottom: 20px;"><i class="fas fa-users" style="margin-right: 8px;"></i>User Management</h2>
+                <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                    <thead>
+                        <tr style="background-color: #f2f2f2;">
+                            <th style="padding: 12px; border: 1px solid #ddd;">ID</th>
+                            <th style="padding: 12px; border: 1px solid #ddd;">Login ID</th>
+                            <th style="padding: 12px; border: 1px solid #ddd;">Name</th>
+                            <th style="padding: 12px; border: 1px solid #ddd;">Email</th>
+                            <th style="padding: 12px; border: 1px solid #ddd;">Status</th>
+                            <th style="padding: 12px; border: 1px solid #ddd;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr style="background-color: {% cycle '#ffffff' '#f9f9f9' %}; transition: background 0.3s;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ user.id }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ user.loginid }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ user.name }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ user.email }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ user.status }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">
+                                {% if user.status == 'Active' %}
+                                <a href="deactivate_user?id={{user.id}}" class="btn"
+                                    style="color: white; background-color: #FF4500; padding: 6px 12px; border-radius: 5px; text-decoration: none;">
+                                    Deactivate
+                                </a>
+                                {% else %}
+                                <a href="activate_user?id={{user.id}}" class="btn"
+                                    style="color: white; background-color: #28a745; padding: 6px 12px; border-radius: 5px; text-decoration: none;">
+                                    Activate
+                                </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </section>
+</section>
+
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-12 text-gray-800">About Our Project</h2>
+            <div class="dashboard-card max-w-3xl mx-auto p-10 rounded-xl shadow-lg">
+                <p class="text-gray-700 text-lg leading-relaxed">
+                    This project implements a hybrid machine learning approach to detect advertising fraud in real time. 
+                    By combining supervised and unsupervised techniques with streaming data analysis, we enable advertisers and platforms to identify fraudulent activities instantly. 
+                    As an admin, you can manage user accounts, monitor detection performance, and ensure the integrity of ad campaigns across the platform.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm">© 2025 Hybrid Graph-Fine Tree Intrusion Detection System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Navbar
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-sticky');
+            } else {
+                navbar.classList.remove('navbar-sticky');
+            }
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // 3D Tilt Effect for Buttons and Cards
+        document.querySelectorAll('.nav-btn, .dashboard-card').forEach(element => {
+            element.addEventListener('mousemove', (e) => {
+                const rect = element.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            element.addEventListener('mouseleave', () => {
+                element.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+            });
+        });
+    </script>
+</body>
+</html>

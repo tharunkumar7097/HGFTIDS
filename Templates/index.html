@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid Graph-Fine Tree Intrusion Detection System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+     
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar-gradient text-white p-5">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-3xl font-extrabold tracking-tight">
+                Hybrid Graph-Fine Tree Intrusion Detection System
+            </div>
+            <div class="space-x-6">
+                <a href="/" class="nav-btn inline-block px-6 py-3 rounded-lg bg-blue-800 text-white"><i class="fas fa-home mr-2"></i>Home</a>
+                <a href="userLoginForm" class="nav-btn inline-block px-6 py-3 rounded-lg bg-blue-800 text-white"><i class="fas fa-user mr-2"></i>User</a>
+                <a href="adminLoginForm" class="nav-btn inline-block px-6 py-3 rounded-lg bg-blue-800 text-white"><i class="fas fa-user-shield mr-2"></i>Admin</a>
+                <a href="userRegisterForm" class="nav-btn inline-block px-6 py-3 rounded-lg bg-blue-800 text-white"><i class="fas fa-user-plus mr-2"></i>Register</a>
+                <a href="#about" class="nav-btn inline-block px-6 py-3 rounded-lg bg-blue-800 text-white"><i class="fas fa-info-circle mr-2"></i>About Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-36 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight animate-fade-in">Hybrid Graph-Fine Tree Intrusion Detection System</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto animate-fade-in">Leveraging Advanced Data Science to Identify and Prevent Intrusions in Real Time</p>
+            <a href="#about" class="bg-white text-blue-700 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition shadow-xl hover:shadow-2xl">Discover More</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gray-100">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-12 text-gray-800">About Our Project</h2>
+            <div class="about-card max-w-3xl mx-auto p-10 rounded-xl shadow-lg">
+                <p class="text-gray-700 text-lg leading-relaxed">
+                    This project implements a hybrid graph-fine tree approach to detect intrusions in real time.
+                    By combining graph-based and tree-based techniques with streaming data analysis, we enable systems to identify intrusion activities such as unauthorized access, malware, and network attacks instantly, enhancing security and preventing breaches.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm">© 2025 Hybrid Graph-Fine Tree Intrusion Detection System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Navbar
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-sticky');
+            } else {
+                navbar.classList.remove('navbar-sticky');
+            }
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // 3D Tilt Effect for Buttons
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                btn.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'perspective(500px) rotateX(0deg) rotateY(0deg)';
+            });
+        });
+    </script>
+</body>
+</html>
